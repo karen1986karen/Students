@@ -1,0 +1,84 @@
+.faculity{
+  border: 1px solid lightgray;
+  background-color: white;
+  
+}
+.head{
+  width: 100%;
+  border-bottom: 1px solid;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgrey;
+}
+.fa-edit{
+  color: green;
+  cursor: pointer;
+}
+.fa-times{
+  color: red;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.head h6{
+  margin-left: 2rem;
+}
+.key{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.key button{
+  margin: 20px 20px 0px 0px;
+}
+.content{
+  padding-top: 1.5rem;
+  background-color: white;
+}
+.menu{
+  width: 100%;
+  margin-top: 20px !important;
+  border: 1px solid;
+}
+.card{
+  margin-bottom: 0px;
+}
+.itemGroup{
+  display: flex;
+  width: 98%;
+  margin: 0 auto;
+  border-top: 1px solid;
+}
+.itemGroup select{
+  width: 100%;
+}
+.item{
+  margin: 5px;
+}
+.i-name{
+  width: 17%;
+}
+.i-group{
+  width: 13%;
+}
+.item input{
+  width: 90%;
+}
+.back{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.bt {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+.mod input{
+  width: 93%;
+  margin-left: 2rem;
+}
+.addFacul{
+  margin-bottom: 20px;
+}

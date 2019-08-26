@@ -1,0 +1,161 @@
+<div class="faculity">
+  <div class=" row" *ngIf='menu'>
+        <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6>Dashboard</h6>
+                    </div>
+                    <div class="card-body">
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Faculities</th>
+                                            <th>Groups</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Search By Name..." [(ngModel)]='studentName'>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Search By Last Name..." [(ngModel)]='lastName'>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Search By Email..." [(ngModel)]='email'>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="Search By Phone..." [(ngModel)]='phone'>
+                                            </td>
+                                            <td>
+                                                <select name="faculities" id="" [(ngModel)]='fName' class="form-control">
+                                                    <option></option>
+                                                    <option  *ngFor='let item of faculArr ; index as i' >
+                                                        {{item.name}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select name="group" id="" [(ngModel)]='gName' class="form-control">
+                                                    <option></option>
+                                                    <option *ngFor='let item of groupArr; index as i'>
+                                                    {{item.name}}
+                                                    </option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr *ngFor="let item of arr  | name:studentName | lastName:lastName | email:email | facultet:fName | group:gName | phone:phone; index as i">
+                                            <td>{{item.id}}</td>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.last_name}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.phone}}</td>
+                                            <td>{{item.get_faculty.name}}</td>
+                                            <td>{{item.get_group[0].name}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+            
+                        </div>
+
+
+
+
+                </div>
+            </div> 
+            
+
+          <!-- <div class="content"> -->
+                  <!-- <div class="itemGroup">
+                      <div class="item i-name">
+                          <b>id</b>
+                      </div>
+                      <div class="item i-name">
+                          <b>Name</b>     
+                      </div>
+                      <div class="item i-name">
+                          <b>Last Name</b>     
+                      </div>
+                      <div class="item i-name">
+                          <b>Email</b>     
+                      </div>
+                      <div class="item i-name">
+                          <b>Phone</b>     
+                      </div>
+                      <div class="item i-group">
+                        <b>Faculities</b>     
+                      </div>
+                      <div class="item i-group">
+                          <b>Groups</b>     
+                      </div>
+                  </div> -->
+                  <!-- <div class="itemGroup">
+                    <div class="item i-name">
+                        <input type="text" placeholder="Search By ID..." [(ngModel)]='studentId' disabled>
+                    </div>
+
+                    <div class="item i-name">
+                        <input type="text" placeholder="Search By Name..." [(ngModel)]='studentName'>     
+                    </div>
+                    <div class="item i-name">
+                        <input type="text" placeholder="Search By Last Name..." [(ngModel)]='lastName'>     
+                    </div>
+                    <div class="item i-name">
+                        <input type="text" placeholder="Search By Email..." [(ngModel)]='email'>     
+                    </div>
+                    <div class="item i-name">
+                        <input type="text" placeholder="Search By Phone..." [(ngModel)]='phone'>     
+                    </div>
+                    <div class="item i-group">
+                      <select name="faculities" id="" [(ngModel)]='fName'>
+                          <option></option>
+                        <option  *ngFor='let item of faculArr ; index as i' >
+                            {{item.name}}
+                        </option>
+                      </select>     
+                  </div>
+                  <div class="item i-group">
+                      <select name="group" id="" [(ngModel)]='gName'>
+                            <option></option>
+                          <option *ngFor='let item of groupArr; index as i'>
+                            {{item.name}}
+                          </option>
+                      </select>     
+                  </div>
+            </div> -->
+          <!-- <div *ngFor="let item of arr  | name:studentName | lastName:lastName | email:email | facultet:fName | group:gName | phone:phone; index as i" class="itemGroup">
+                <div class="item i-name">
+                    {{item.id}}  
+                </div>
+                <div class="item i-name">
+                    {{item.name}}
+                </div>
+                <div class="item i-name">
+                    {{item.last_name}}
+                </div>
+                <div class="item i-name">
+                    {{item.email}}
+                </div>
+                <div class="item i-name">
+                    {{item.phone}}
+                </div>
+                <div class="item i-group">
+                    {{item.get_faculty.name}}
+                </div>
+                <div class="item i-group">
+                    {{item.get_group[0].name}}
+                </div>
+          </div> -->
+          <!-- </div> -->
+  </div>
+</div>
+
+

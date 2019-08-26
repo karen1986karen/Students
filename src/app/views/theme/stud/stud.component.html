@@ -1,0 +1,101 @@
+<div class="stud">
+    <div class="row" *ngIf='mod' >
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6>{{title}} Student</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                                <div class="form-group ">
+                                    <label for="Name" class="col-lg-12">Name:</label>
+                                        <input type="text" [(ngModel)]='studentName' class="form-control">
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.name}}</p>
+                                    <label for="lastName" class="col-lg-12">Last Name:</label>
+                                        <input type="text" [(ngModel)]='lastName' class="form-control">
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.last_name}}</p>
+                                    <label for="email" class="col-lg-12">Email:</label>
+                                        <input type="email" [(ngModel)]='email' class="form-control">
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.email}}</p>
+                                    <label for="phone" class="col-lg-12">Phone:</label>
+                                        <input type="number" [(ngModel)]='phone' required maxlength="9" class="form-control">
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.phone}}</p>
+                                    <label for="faculId" class="col-lg-12">Faculity:</label>
+                                        <select name="FaculId" id="" [(ngModel)]='faculId' (ngModelChange)="onChange($event)" class="form-control">
+                                            <option value=""></option>
+                                            <option *ngFor='let item of faculArr; index as i'  [value]="item.id" >
+                                                {{item.name}}
+                                            </option>
+                                        </select>
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.faculty_id}}</p>
+                                    <label for="groupId" class="col-lg-12">Group:</label>
+                                        <select [disabled]='disabled' name="GroupId" id="group" [(ngModel)]='groupId'  (ngModelChange)="onChang($event)" class="form-control">
+                                                <option value=""></option>
+                                            <option *ngFor='let item of groupArr; index as i'  [value]="item.id" >
+                                                {{item.name}}
+                                            </option>
+                                        </select>
+                                        <p *ngIf='error1' class="danger">{{error1.error.error.group_id}}</p>
+                                    <label for="Faculity" class="col-lg-12" *ngIf='selectInput'>Faculity:</label>
+                                        <select name="faculity" id="" [(ngModel)]='faculId' *ngIf='selectInput' class="form-control">
+                                            <option *ngFor='let item of arr; index as i'  [value]="item.id" >
+                                                {{item.name}}
+                                            </option>
+                                        </select>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="bt form-actions">
+                        <button class="btn btn-danger clos mr-2" (click)="close()">Cancel</button>
+                        <button *ngIf='addSt' (click)='addStd()' class="btn btn-success mr-2" >Save</button>
+                        <button *ngIf='edSt' (click)='editS(studentId, studentName, lastName, email, phone, faculId, groupId)' class="btn btn-success mr-2">Save</button>
+                    </div>
+                </div>
+    </div>
+    <div class="row " *ngIf='menu'>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Student Table</h6>
+                </div>
+                    <div class="card-body">
+                        <div class="form-actions btAdd">
+                            <button class="btn btn-success" (click)='addStud()'>Create Student</button>
+                        </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Faculities</th>
+                                        <th>Groups</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor='let item of students; index as i'>
+                                        <td>{{item.id}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.last_name}}</td>
+                                        <td>{{item.email}}</td>
+                                        <td>{{item.phone}}</td>
+                                        <td>{{item.get_faculty.name}}</td>
+                                        <td>{{item.get_group[0].name}}</td>
+                                        <td class='i-actions'> 
+                                            <i class="far fa-edit" (click)='editStud(item)'></i>
+                                            <i class="fas fa-times" (click)='deleteStudent(item.id)'></i>  
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

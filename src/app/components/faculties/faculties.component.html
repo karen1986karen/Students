@@ -1,0 +1,33 @@
+
+<div class="faculity">
+        <div class="mod" *ngIf='mod' >
+                <h1>{{title}} Faculity</h1>
+                <button type="button" class="close btn btn-danger" aria-label="Close" (click)="close()">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                <label for="Name">Name</label>
+                <input type="text" [(ngModel)]='name'>
+                <button (click)='faculityAdd()' class="addFacul" *ngIf='facul'>Add Faculity</button>
+                <button *ngIf='but' (click)="editItem(name)">EDIT</button>
+        </div>   
+    <div class="content">
+            <h1>Faculities</h1>
+                <button class="btn btn-info" (click)='addFaculity()'>Add Faculities</button>
+                <button class="btn btn-danger back" [routerLink]="['/dashboard']">Back</button>
+            <div *ngFor='let item of arr; index as i' class="itemGroup">
+                <div class="item">
+                        {{item.id}}  
+                </div>
+                <div class="item">
+                        {{item.name}}
+                </div>
+                <div class="item">
+                        {{item.created_at}}
+                </div>
+                <div class="item">
+                        <button class="btn btn-danger" (click)='edit(item.id, item.name)'>Edit</button>
+                        <button class="btn btn-danger" (click)='delete(item.id)'>Delete</button>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="stud">
+    <div class="mod" *ngIf='mod' >
+        <h1>{{title}} Student</h1>
+        <button type="button" class="close btn btn-danger" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <label for="Student Name">Student Name</label>
+            <input type="text" [(ngModel)]='studentName'>
+        <label for="Student Id" *ngIf='stId'>Student Id</label>
+            <input type="text" *ngIf='stId' [(ngModel)]='studentId'>
+        <label for="lastName">Last Name</label>
+            <input type="text" [(ngModel)]='lastName'>
+        <label for="email">Email</label>
+            <input type="text" [(ngModel)]='email'>
+        <label for="phone">Phone</label>
+            <input type="text" [(ngModel)]='phone'>
+        <label for="groupId">Group Id</label>
+            <input type="text" [(ngModel)]='groupId'>
+        <label for="sFaculId">Stud Facul Id</label>
+            <input *ngIf='facIn' type="text" [(ngModel)]='faculId'>
+
+        <button *ngIf='addSt' (click)='addStd()' class="btn btn-success">Add Student</button>
+        <button *ngIf='edSt' class="btn btn-success" (click)='editS(studentId, studentName, lastName, email, phone, faculId, groupId)'>EDIT Student</button>
+    </div>
+    <h1>All Students</h1>
+    <div class="content">
+        <button class="btn btn-danger back" [routerLink]="['/dashboard']">Back</button>
+        <button class="btn btn-info" (click)='addStud()'>Add Student</button>
+        <div *ngFor='let item of students; index as i' class="oneItem">
+            <div class="items" >
+                {{item.id}}
+            </div>
+            <div class="items">
+                {{item.name}}
+            </div>
+            <div class="items">
+                {{item.last_name}}
+            </div>
+            <div class="items">
+                {{item.email}}
+            </div>
+            <div class="items">
+                {{item.phone}}
+            </div>
+            <div class="items">
+                {{item.faculty_id}}
+            </div>
+            <div class="items">
+                {{item.group_id}}
+            </div>
+            <div class="items">
+                <button class="btn btn-danger mr-3" 
+                 (click)='editStud(item)'>Edit</button>  
+                <button class="btn btn-danger"
+                 (click)='deleteStudent(item.id)'>Delete</button>    
+            </div>
+        </div>
+    </div>
+</div>

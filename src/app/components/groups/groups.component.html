@@ -1,0 +1,37 @@
+<div class="group">
+    <div class="mod" *ngIf='mod' >
+        <h1>{{title}} Group</h1>
+        <button type="button" class="close btn btn-danger" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <label for="Group Name">Group Name</label>
+            <input type="text" [(ngModel)]='groupName'>
+        <label for="Group Id">Group Id</label>
+            <input type="text" [(ngModel)]='groupId'>
+        <label for="Facul Id" *ngIf='facIn'>Facul Id</label>
+            <input *ngIf='facIn' type="text" [(ngModel)]='faculId'>
+
+        <button *ngIf='addGr' (click)='addOne()'>Add Group</button>
+        <button *ngIf='edGr' (click)='editG(groupName, groupId)'>EDIT Group</button>
+    </div>
+    <h1>All Groups</h1>
+    <div class="content">
+            <button class="btn btn-danger back" [routerLink]="['/dashboard']">Back</button>
+        <button class="btn btn-info" (click)='addGroup()'>Add Group</button>
+        <div *ngFor='let item of empty; index as i' class="oneItem">
+            <div class="items">
+                {{item.id}}
+            </div>
+            <div class="items">
+                {{item.name}}
+            </div>
+            <div class="items">
+                    {{item.created_at}}
+            </div>
+            <div class="items">
+                <button class="btn btn-danger mr-3" (click)='editGroup(item.id, item.name, item.faculty_id)'>Edit</button>  
+                <button class="btn btn-danger " (click)='deleteGroup(item.id)'>Delete</button>    
+            </div>
+        </div>
+    </div>
+</div>
